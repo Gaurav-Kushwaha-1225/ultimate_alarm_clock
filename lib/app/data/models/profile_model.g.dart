@@ -107,6 +107,11 @@ const ProfileModelSchema = CollectionSchema(
       name: r'isPedometerEnabled',
       type: IsarType.bool,
     ),
+    r'isMatchTilesEnabled': PropertySchema(
+      id: 44,
+      name: r'isMatchTilesEnabled',
+      type: IsarType.bool,
+    ),
     r'isQrEnabled': PropertySchema(
       id: 18,
       name: r'isQrEnabled',
@@ -316,6 +321,7 @@ void _profileModelSerialize(
   writer.writeBool(offsets[15], object.isMathsEnabled);
   writer.writeBool(offsets[16], object.isOneTime);
   writer.writeBool(offsets[17], object.isPedometerEnabled);
+  writer.writeBool(offsets[44], object.isMatchTilesEnabled);
   writer.writeBool(offsets[18], object.isQrEnabled);
   writer.writeBool(offsets[19], object.isShakeEnabled);
   writer.writeBool(offsets[20], object.isSharedAlarmEnabled);
@@ -368,6 +374,7 @@ ProfileModel _profileModelDeserialize(
     isMathsEnabled: reader.readBool(offsets[15]),
     isOneTime: reader.readBool(offsets[16]),
     isPedometerEnabled: reader.readBool(offsets[17]),
+    isMatchTilesEnabled: reader.readBool(offsets[44]),
     isQrEnabled: reader.readBool(offsets[18]),
     isShakeEnabled: reader.readBool(offsets[19]),
     isSharedAlarmEnabled: reader.readBool(offsets[20]),
@@ -1486,6 +1493,16 @@ extension ProfileModelQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'isPedometerEnabled',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ProfileModel, ProfileModel, QAfterFilterCondition>
+  isMatchTilesEnabledEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'isMatchTilesEnabled',
         value: value,
       ));
     });
@@ -3920,6 +3937,20 @@ extension ProfileModelQuerySortBy
     });
   }
 
+  QueryBuilder<ProfileModel, ProfileModel, QAfterSortBy>
+  sortByIsMatchTilesEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isMatchTilesEnabled', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ProfileModel, ProfileModel, QAfterSortBy>
+  sortByIsMatchTilesEnabledDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isMatchTilesEnabled', Sort.desc);
+    });
+  }
+
   QueryBuilder<ProfileModel, ProfileModel, QAfterSortBy> sortByIsQrEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isQrEnabled', Sort.asc);
@@ -4457,6 +4488,20 @@ extension ProfileModelQuerySortThenBy
     });
   }
 
+  QueryBuilder<ProfileModel, ProfileModel, QAfterSortBy>
+      thenByIsMatchTilesEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isMatchTilesEnabled', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ProfileModel, ProfileModel, QAfterSortBy>
+      thenByIsMatchTilesEnabledDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isMatchTilesEnabled', Sort.desc);
+    });
+  }
+
   QueryBuilder<ProfileModel, ProfileModel, QAfterSortBy> thenByIsQrEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isQrEnabled', Sort.asc);
@@ -4903,6 +4948,13 @@ extension ProfileModelQueryWhereDistinct
     });
   }
 
+  QueryBuilder<ProfileModel, ProfileModel, QDistinct>
+      distinctByIsMatchTilesEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isMatchTilesEnabled');
+    });
+  }
+
   QueryBuilder<ProfileModel, ProfileModel, QDistinct> distinctByIsQrEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'isQrEnabled');
@@ -5197,6 +5249,13 @@ extension ProfileModelQueryProperty
       isPedometerEnabledProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'isPedometerEnabled');
+    });
+  }
+
+  QueryBuilder<ProfileModel, bool, QQueryOperations>
+      isMatchTilesEnabledProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isMatchTilesEnabled');
     });
   }
 

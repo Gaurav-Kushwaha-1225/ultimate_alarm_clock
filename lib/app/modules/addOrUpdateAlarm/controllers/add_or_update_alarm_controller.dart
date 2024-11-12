@@ -47,6 +47,7 @@ class AddOrUpdateAlarmController extends GetxController {
   final timeToAlarm = ''.obs;
   final shakeTimes = 0.obs;
   final isPedometerEnabled = false.obs;
+  final isMatchTilesEnabled = false.obs;
   final numberOfSteps = 0.obs;
   var ownerId = ''.obs; // id -> owner of the alarm
   var ownerName = ''.obs; // name -> owner of the alarm
@@ -73,6 +74,8 @@ class AddOrUpdateAlarmController extends GetxController {
   final mathsDifficulty = Difficulty.Easy.obs;
   final isMathsEnabled = false.obs;
   final numMathsQuestions = 1.obs;
+
+  final tilesDifficulty = Difficulty.Easy.obs;
   final MapController mapController = MapController();
   final selectedPoint = LatLng(0, 0).obs;
   final RxList markersList = [].obs;
@@ -780,6 +783,8 @@ class AddOrUpdateAlarmController extends GetxController {
       isPedometerEnabled.value = alarmRecord.value.isPedometerEnabled;
       numberOfSteps.value = alarmRecord.value.numberOfSteps;
 
+      isMatchTilesEnabled.value = alarmRecord.value.isMatchTilesEnabled;
+
       isQrEnabled.value = alarmRecord.value.isQrEnabled;
       qrValue.value = alarmRecord.value.qrValue;
       detectedQrValue.value = alarmRecord.value.qrValue;
@@ -1063,6 +1068,7 @@ class AddOrUpdateAlarmController extends GetxController {
       isShakeEnabled: isShakeEnabled.value,
       shakeTimes: shakeTimes.value,
       isPedometerEnabled: isPedometerEnabled.value,
+      isMatchTilesEnabled: isMatchTilesEnabled.value,
       numberOfSteps: numberOfSteps.value,
       ringtoneName: customRingtoneName.value,
       note: note.value,
@@ -1327,6 +1333,7 @@ class AddOrUpdateAlarmController extends GetxController {
       isShakeEnabled: isShakeEnabled.value,
       shakeTimes: shakeTimes.value,
       isPedometerEnabled: isPedometerEnabled.value,
+      isMatchTilesEnabled: isMatchTilesEnabled.value,
       numberOfSteps: numberOfSteps.value,
       ringtoneName: customRingtoneName.value,
       activityMonitor: isActivityMonitorenabled.value,

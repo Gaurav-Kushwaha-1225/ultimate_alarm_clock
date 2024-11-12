@@ -23,6 +23,7 @@ class AlarmModel {
   late bool isShakeEnabled;
   late bool isQrEnabled;
   late bool isPedometerEnabled;
+  late bool isMatchTilesEnabled;
   late int intervalToAlarm;
   late bool isActivityEnabled;
   late String location;
@@ -88,6 +89,7 @@ class AlarmModel {
       required this.isQrEnabled,
       required this.qrValue,
       required this.isPedometerEnabled,
+      required this.isMatchTilesEnabled,
       required this.numberOfSteps,
       required this.activityInterval,
       this.offsetDetails = const {},
@@ -162,6 +164,7 @@ class AlarmModel {
     isShakeEnabled = documentSnapshot['isShakeEnabled'];
     shakeTimes = documentSnapshot['shakeTimes'];
     isPedometerEnabled = documentSnapshot['isPedometerEnabled'];
+    isMatchTilesEnabled = documentSnapshot['isMatchTilesEnabled'];
     numberOfSteps = documentSnapshot['numberOfSteps'];
     ringtoneName = documentSnapshot['ringtoneName'];
     note = documentSnapshot['note'];
@@ -202,6 +205,7 @@ class AlarmModel {
       isQrEnabled: map['isQrEnabled'] == 1,
       qrValue: map['qrValue'],
       isPedometerEnabled: map['isPedometerEnabled'] == 1,
+      isMatchTilesEnabled: map['isMatchTilesEnabled'] == 1,
       numberOfSteps: map['numberOfSteps'],
       intervalToAlarm: map['intervalToAlarm'],
       isActivityEnabled: map['isActivityEnabled'] == 1,
@@ -256,6 +260,7 @@ class AlarmModel {
       'isQrEnabled': isQrEnabled ? 1 : 0,
       'qrValue': qrValue,
       'isPedometerEnabled': isPedometerEnabled ? 1 : 0,
+      'isMatchTilesEnabled': isMatchTilesEnabled ? 1 : 0,
       'numberOfSteps': numberOfSteps,
       'intervalToAlarm': intervalToAlarm,
       'isActivityEnabled': isActivityEnabled ? 1 : 0,
@@ -320,6 +325,7 @@ class AlarmModel {
     isShakeEnabled = alarmData['isShakeEnabled'];
     shakeTimes = alarmData['shakeTimes'];
     isPedometerEnabled = alarmData['isPedometerEnabled'];
+    isMatchTilesEnabled = alarmData['isMatchTilesEnabled'];
     numberOfSteps = alarmData['numberOfSteps'];
     label = alarmData['label'];
     isOneTime = alarmData['isOneTime'];
@@ -379,6 +385,7 @@ class AlarmModel {
       'isShakeEnabled': alarmRecord.isShakeEnabled,
       'shakeTimes': alarmRecord.shakeTimes,
       'isPedometerEnabled': alarmRecord.isPedometerEnabled,
+      'isMatchTilesEnabled': alarmRecord.isMatchTilesEnabled,
       'numberOfSteps': alarmRecord.numberOfSteps,
       'snoozeDuration': alarmRecord.snoozeDuration,
       'gradient': alarmRecord.gradient,

@@ -20,6 +20,7 @@ class ProfileModel {
   late bool isShakeEnabled;
   late bool isQrEnabled;
   late bool isPedometerEnabled;
+  late bool isMatchTilesEnabled;
   late int intervalToAlarm;
   late bool isActivityEnabled;
   late String location;
@@ -82,6 +83,7 @@ class ProfileModel {
       required this.isQrEnabled,
       required this.qrValue,
       required this.isPedometerEnabled,
+      required this.isMatchTilesEnabled,
       required this.numberOfSteps,
       required this.activityInterval,
       this.offsetDetails = const {},
@@ -148,6 +150,7 @@ class ProfileModel {
     isShakeEnabled = documentSnapshot['isShakeEnabled'];
     shakeTimes = documentSnapshot['shakeTimes'];
     isPedometerEnabled = documentSnapshot['isPedometerEnabled'];
+    isMatchTilesEnabled = documentSnapshot['isMatchTilesEnabled'];
     numberOfSteps = documentSnapshot['numberOfSteps'];
     ringtoneName = documentSnapshot['ringtoneName'];
     note = documentSnapshot['note'];
@@ -202,6 +205,7 @@ class ProfileModel {
     isShakeEnabled = profileData['isShakeEnabled'];
     shakeTimes = profileData['shakeTimes'];
     isPedometerEnabled = profileData['isPedometerEnabled'];
+    isMatchTilesEnabled = profileData['isMatchTilesEnabled'];
     numberOfSteps = profileData['numberOfSteps'];
     label = profileData['label'];
     isOneTime = profileData['isOneTime'];
@@ -259,6 +263,7 @@ class ProfileModel {
       'isShakeEnabled': profileRecord.isShakeEnabled,
       'shakeTimes': profileRecord.shakeTimes,
       'isPedometerEnabled': profileRecord.isPedometerEnabled,
+      'isMatchTilesEnabled': profileRecord.isMatchTilesEnabled,
       'numberOfSteps': profileRecord.numberOfSteps,
       'snoozeDuration': profileRecord.snoozeDuration,
       'gradient': profileRecord.gradient,

@@ -41,6 +41,8 @@ class AlarmChallengeController extends GetxController {
   int initialSteps = 0;
   bool shouldProcessStepCount = false;
 
+  RxString difficultyMatchTiles = 'easy'.obs;
+
   late Stream<StepCount> _stepCountStream;
 
   void onButtonPressed(String buttonText) {
@@ -196,6 +198,10 @@ class AlarmChallengeController extends GetxController {
           }
         });
       }
+    }
+
+    if(alarmRecord.isMatchTilesEnabled) {
+      return ;
     }
   }
 

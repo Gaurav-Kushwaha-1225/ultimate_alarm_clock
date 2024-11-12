@@ -26,7 +26,9 @@ import 'package:ultimate_alarm_clock/app/modules/addOrUpdateAlarm/views/shake_to
 import 'package:ultimate_alarm_clock/app/modules/addOrUpdateAlarm/views/shared_alarm_tile.dart';
 import 'package:ultimate_alarm_clock/app/modules/addOrUpdateAlarm/views/shared_users_tile.dart';
 import 'package:ultimate_alarm_clock/app/modules/addOrUpdateAlarm/views/snooze_duration_tile.dart';
+import 'package:ultimate_alarm_clock/app/modules/addOrUpdateAlarm/views/tiles_challenge_tile.dart';
 import 'package:ultimate_alarm_clock/app/modules/addOrUpdateAlarm/views/weather_tile.dart';
+import 'package:ultimate_alarm_clock/app/modules/alarmChallenge/views/tiles_challenge_view.dart';
 import 'package:ultimate_alarm_clock/app/modules/settings/controllers/settings_controller.dart';
 import 'package:ultimate_alarm_clock/app/modules/settings/controllers/theme_controller.dart';
 import 'package:ultimate_alarm_clock/app/utils/constants.dart';
@@ -170,6 +172,8 @@ class AddOrUpdateAlarmView extends GetView<AddOrUpdateAlarmController> {
                             isPedometerEnabled:
                                 controller.isPedometerEnabled.value,
                             numberOfSteps: controller.numberOfSteps.value,
+                            isMatchTilesEnabled: controller.isMatchTilesEnabled
+                                .value,
                             ringtoneName: controller.customRingtoneName.value,
                             activityMonitor:
                                 controller.isActivityMonitorenabled.value,
@@ -929,6 +933,13 @@ class AddOrUpdateAlarmView extends GetView<AddOrUpdateAlarmController> {
                             controller: controller,
                             themeController: themeController,
                           ),
+                          Divider(
+                            color: themeController.primaryDisabledTextColor.value,
+                          ),
+                          TilesChallenge(
+                            controller: controller,
+                            themeController: themeController,
+                          )
                         ],
                       )
                           : const SizedBox(),

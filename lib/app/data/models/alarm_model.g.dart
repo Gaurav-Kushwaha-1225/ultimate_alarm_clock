@@ -117,6 +117,11 @@ const AlarmModelSchema = CollectionSchema(
       name: r'isPedometerEnabled',
       type: IsarType.bool,
     ),
+    r'isMatchTilesEnabled': PropertySchema(
+        id: 47,
+        name: r'isMatchTilesEnabled',
+        type: IsarType.bool
+    ),
     r'isQrEnabled': PropertySchema(
       id: 20,
       name: r'isQrEnabled',
@@ -341,6 +346,7 @@ void _alarmModelSerialize(
   writer.writeBool(offsets[17], object.isMathsEnabled);
   writer.writeBool(offsets[18], object.isOneTime);
   writer.writeBool(offsets[19], object.isPedometerEnabled);
+  writer.writeBool(offsets[47], object.isMatchTilesEnabled);
   writer.writeBool(offsets[20], object.isQrEnabled);
   writer.writeBool(offsets[21], object.isShakeEnabled);
   writer.writeBool(offsets[22], object.isSharedAlarmEnabled);
@@ -396,6 +402,7 @@ AlarmModel _alarmModelDeserialize(
     isMathsEnabled: reader.readBool(offsets[17]),
     isOneTime: reader.readBool(offsets[18]),
     isPedometerEnabled: reader.readBool(offsets[19]),
+    isMatchTilesEnabled: reader.readBool(offsets[47]),
     isQrEnabled: reader.readBool(offsets[20]),
     isShakeEnabled: reader.readBool(offsets[21]),
     isSharedAlarmEnabled: reader.readBool(offsets[22]),
@@ -1777,6 +1784,16 @@ extension AlarmModelQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'isPedometerEnabled',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<AlarmModel, AlarmModel, QAfterFilterCondition>
+  isMatchTilesEnabledEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'isMatchTilesEnabled',
         value: value,
       ));
     });
@@ -4350,6 +4367,20 @@ extension AlarmModelQuerySortBy
     });
   }
 
+  QueryBuilder<AlarmModel, AlarmModel, QAfterSortBy>
+  sortByIsMatchTilesEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isMatchTilesEnabled', Sort.asc);
+    });
+  }
+
+  QueryBuilder<AlarmModel, AlarmModel, QAfterSortBy>
+  sortByIsMatchTilesEnabledDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isMatchTilesEnabled', Sort.desc);
+    });
+  }
+
   QueryBuilder<AlarmModel, AlarmModel, QAfterSortBy> sortByIsQrEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isQrEnabled', Sort.asc);
@@ -4903,6 +4934,20 @@ extension AlarmModelQuerySortThenBy
     });
   }
 
+  QueryBuilder<AlarmModel, AlarmModel, QAfterSortBy>
+  thenByIsMatchTilesEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isMatchTilesEnabled', Sort.asc);
+    });
+  }
+
+  QueryBuilder<AlarmModel, AlarmModel, QAfterSortBy>
+  thenByIsMatchTilesEnabledDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isMatchTilesEnabled', Sort.desc);
+    });
+  }
+
   QueryBuilder<AlarmModel, AlarmModel, QAfterSortBy> thenByIsQrEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isQrEnabled', Sort.asc);
@@ -5359,6 +5404,13 @@ extension AlarmModelQueryWhereDistinct
     });
   }
 
+  QueryBuilder<AlarmModel, AlarmModel, QDistinct>
+  distinctByIsMatchTilesEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isMatchTilesEnabled');
+    });
+  }
+
   QueryBuilder<AlarmModel, AlarmModel, QDistinct> distinctByIsQrEnabled() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'isQrEnabled');
@@ -5665,6 +5717,13 @@ extension AlarmModelQueryProperty
       isPedometerEnabledProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'isPedometerEnabled');
+    });
+  }
+
+  QueryBuilder<AlarmModel, bool, QQueryOperations>
+  isMatchTilesEnabledProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isMatchTilesEnabled');
     });
   }
 

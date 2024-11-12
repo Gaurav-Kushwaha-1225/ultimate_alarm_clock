@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ultimate_alarm_clock/app/modules/alarmChallenge/views/tiles_challenge_view.dart';
 import 'package:ultimate_alarm_clock/app/modules/alarmChallenge/views/maths_challenge_view.dart';
 import 'package:ultimate_alarm_clock/app/modules/alarmChallenge/views/pedometer_challenge_view.dart';
 import 'package:ultimate_alarm_clock/app/modules/alarmChallenge/views/qr_challenge_view.dart';
@@ -274,6 +275,65 @@ class AlarmChallengeView extends GetView<AlarmChallengeController> {
                                         () => Icon(
                                           controller.isPedometerOngoing.value ==
                                                   Status.completed
+                                              ? Icons.done
+                                              : Icons.arrow_forward_ios_sharp,
+                                          color: themeController.primaryTextColor.value
+                                              .withOpacity(0.3),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          const SizedBox(
+                            height: 20,
+                            width: 0,
+                          ),
+                          if (controller.alarmRecord.isMatchTilesEnabled)
+                            InkWell(
+                              onTap: () {
+                                Utils.hapticFeedback();
+                                if (controller.alarmRecord.isMatchTilesEnabled) {
+                                  controller.numberOfSteps =
+                                      controller.alarmRecord.numberOfSteps;
+                                  controller.isPedometerOngoing.value =
+                                      Status.ongoing;
+                                  Get.to(() => MatchingTilesChallengeView());
+                                }
+                              },
+                              child: Obx(
+                                    () => Container(
+                                  width: width * 0.91,
+                                  height: height * 0.1,
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(18),
+                                    ),
+                                    color: themeController.secondaryBackgroundColor.value,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+                                        Icons.games_rounded,
+                                        color: themeController.primaryTextColor.value.withOpacity(0.8),
+                                        size: 28,
+                                      ),
+                                      Text(
+                                        'Matching Tiles Challenge',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge!
+                                            .copyWith(
+                                          color: themeController.primaryTextColor.value,
+                                        ),
+                                      ),
+                                      Obx(
+                                            () => Icon(
+                                          controller.isPedometerOngoing.value ==
+                                              Status.completed
                                               ? Icons.done
                                               : Icons.arrow_forward_ios_sharp,
                                           color: themeController.primaryTextColor.value

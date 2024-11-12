@@ -84,6 +84,7 @@ class IsarDb {
         isQrEnabled INTEGER NOT NULL DEFAULT 0,
         qrValue TEXT,
         isPedometerEnabled INTEGER NOT NULL DEFAULT 0,
+        isMatchTilesEnabled INTEGER NOT NULL DEFAULT 0,
         numberOfSteps INTEGER,
         intervalToAlarm INTEGER,
         isActivityEnabled INTEGER NOT NULL DEFAULT 0,

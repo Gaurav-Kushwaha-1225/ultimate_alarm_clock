@@ -132,6 +132,9 @@ class AppTranslations extends Translations {
           //pedometer_challenge_tile.dart
           'Pedometer': 'Pedometer',
           'pedometerDescription': 'You will have to walk a set number of steps to dismiss the alarm.',
+          //pedometer_challenge_tile.dart
+          'Tiles': 'Matching Tiles',
+          'tilesDescription': 'You will have to play a game where you have to select similar tiles based on your memory to dismiss the alarm.',
           //note.dart
           'Add a note': 'Add a note',
           // qr_bar_code_tile.dart
