@@ -107,11 +107,6 @@ const ProfileModelSchema = CollectionSchema(
       name: r'isPedometerEnabled',
       type: IsarType.bool,
     ),
-    r'isMatchTilesEnabled': PropertySchema(
-      id: 44,
-      name: r'isMatchTilesEnabled',
-      type: IsarType.bool,
-    ),
     r'isQrEnabled': PropertySchema(
       id: 18,
       name: r'isQrEnabled',
@@ -241,7 +236,17 @@ const ProfileModelSchema = CollectionSchema(
       id: 43,
       name: r'weatherTypes',
       type: IsarType.longList,
-    )
+    ),
+    r'isMatchTilesEnabled': PropertySchema(
+      id: 44,
+      name: r'isMatchTilesEnabled',
+      type: IsarType.bool,
+    ),
+    r'tilesDifficulty': PropertySchema(
+      id: 45,
+      name: r'tilesDifficulty',
+      type: IsarType.long,
+    ),
   },
   estimateSize: _profileModelEstimateSize,
   serialize: _profileModelSerialize,
@@ -321,7 +326,6 @@ void _profileModelSerialize(
   writer.writeBool(offsets[15], object.isMathsEnabled);
   writer.writeBool(offsets[16], object.isOneTime);
   writer.writeBool(offsets[17], object.isPedometerEnabled);
-  writer.writeBool(offsets[44], object.isMatchTilesEnabled);
   writer.writeBool(offsets[18], object.isQrEnabled);
   writer.writeBool(offsets[19], object.isShakeEnabled);
   writer.writeBool(offsets[20], object.isSharedAlarmEnabled);
@@ -348,6 +352,8 @@ void _profileModelSerialize(
   writer.writeDouble(offsets[41], object.volMax);
   writer.writeDouble(offsets[42], object.volMin);
   writer.writeLongList(offsets[43], object.weatherTypes);
+  writer.writeBool(offsets[44], object.isMatchTilesEnabled);
+  writer.writeLong(offsets[45], object.tilesDifficulty);
 }
 
 ProfileModel _profileModelDeserialize(
@@ -374,7 +380,6 @@ ProfileModel _profileModelDeserialize(
     isMathsEnabled: reader.readBool(offsets[15]),
     isOneTime: reader.readBool(offsets[16]),
     isPedometerEnabled: reader.readBool(offsets[17]),
-    isMatchTilesEnabled: reader.readBool(offsets[44]),
     isQrEnabled: reader.readBool(offsets[18]),
     isShakeEnabled: reader.readBool(offsets[19]),
     isSharedAlarmEnabled: reader.readBool(offsets[20]),
@@ -401,6 +406,8 @@ ProfileModel _profileModelDeserialize(
     volMax: reader.readDouble(offsets[41]),
     volMin: reader.readDouble(offsets[42]),
     weatherTypes: reader.readLongList(offsets[43]) ?? [],
+    isMatchTilesEnabled: reader.readBool(offsets[44]),
+    tilesDifficulty: reader.readLong(offsets[45])
   );
   object.firestoreId = reader.readStringOrNull(offsets[5]);
   object.isarId = id;

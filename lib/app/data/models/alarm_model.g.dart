@@ -117,11 +117,6 @@ const AlarmModelSchema = CollectionSchema(
       name: r'isPedometerEnabled',
       type: IsarType.bool,
     ),
-    r'isMatchTilesEnabled': PropertySchema(
-        id: 47,
-        name: r'isMatchTilesEnabled',
-        type: IsarType.bool
-    ),
     r'isQrEnabled': PropertySchema(
       id: 20,
       name: r'isQrEnabled',
@@ -256,7 +251,17 @@ const AlarmModelSchema = CollectionSchema(
       id: 46,
       name: r'weatherTypes',
       type: IsarType.longList,
-    )
+    ),
+    r'isMatchTilesEnabled': PropertySchema(
+        id: 47,
+        name: r'isMatchTilesEnabled',
+        type: IsarType.bool
+    ),
+    r'tilesDifficulty': PropertySchema(
+        id: 48,
+        name: r'tilesDifficulty',
+        type: IsarType.bool
+    ),
   },
   estimateSize: _alarmModelEstimateSize,
   serialize: _alarmModelSerialize,
@@ -346,7 +351,6 @@ void _alarmModelSerialize(
   writer.writeBool(offsets[17], object.isMathsEnabled);
   writer.writeBool(offsets[18], object.isOneTime);
   writer.writeBool(offsets[19], object.isPedometerEnabled);
-  writer.writeBool(offsets[47], object.isMatchTilesEnabled);
   writer.writeBool(offsets[20], object.isQrEnabled);
   writer.writeBool(offsets[21], object.isShakeEnabled);
   writer.writeBool(offsets[22], object.isSharedAlarmEnabled);
@@ -374,6 +378,8 @@ void _alarmModelSerialize(
   writer.writeDouble(offsets[44], object.volMax);
   writer.writeDouble(offsets[45], object.volMin);
   writer.writeLongList(offsets[46], object.weatherTypes);
+  writer.writeBool(offsets[47], object.isMatchTilesEnabled);
+  writer.writeLong(offsets[48], object.tilesDifficulty);
 }
 
 AlarmModel _alarmModelDeserialize(
@@ -402,7 +408,6 @@ AlarmModel _alarmModelDeserialize(
     isMathsEnabled: reader.readBool(offsets[17]),
     isOneTime: reader.readBool(offsets[18]),
     isPedometerEnabled: reader.readBool(offsets[19]),
-    isMatchTilesEnabled: reader.readBool(offsets[47]),
     isQrEnabled: reader.readBool(offsets[20]),
     isShakeEnabled: reader.readBool(offsets[21]),
     isSharedAlarmEnabled: reader.readBool(offsets[22]),
@@ -430,6 +435,8 @@ AlarmModel _alarmModelDeserialize(
     volMax: reader.readDouble(offsets[44]),
     volMin: reader.readDouble(offsets[45]),
     weatherTypes: reader.readLongList(offsets[46]) ?? [],
+    isMatchTilesEnabled: reader.readBool(offsets[47]),
+    tilesDifficulty: reader.readLong(offsets[48])
   );
   object.firestoreId = reader.readStringOrNull(offsets[7]);
   object.isarId = id;

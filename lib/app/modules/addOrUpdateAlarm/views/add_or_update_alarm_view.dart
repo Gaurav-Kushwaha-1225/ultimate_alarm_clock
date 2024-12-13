@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -188,6 +190,7 @@ class AddOrUpdateAlarmView extends GetView<AddOrUpdateAlarmController> {
                                 controller.contactTextEditingController.text,
                             isCall: controller.isCall.value,
                             ringOn: controller.isFutureDate.value,
+                            tilesDifficulty: controller.tilesDifficulty.value.index,
                           );
 
                         // Adding offset details to the database if

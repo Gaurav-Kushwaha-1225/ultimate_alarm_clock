@@ -55,6 +55,7 @@ class ProfileModel {
   late int guardianTimer;
   late String guardian;
   late bool isCall;
+  late int tilesDifficulty;
   @ignore
   Map? offsetDetails;
 
@@ -103,7 +104,8 @@ class ProfileModel {
       required this.isGuardian,
       required this.guardianTimer,
       required this.guardian,
-      required this.isCall});
+      required this.isCall,
+      required this.tilesDifficulty});
 
   ProfileModel.fromDocumentSnapshot({
     required firestore.DocumentSnapshot documentSnapshot,
@@ -144,6 +146,7 @@ class ProfileModel {
     location = documentSnapshot['location'];
     isMathsEnabled = documentSnapshot['isMathsEnabled'];
     mathsDifficulty = documentSnapshot['mathsDifficulty'];
+    tilesDifficulty = documentSnapshot['tilesDifficulty'];
     numMathsQuestions = documentSnapshot['numMathsQuestions'];
     isQrEnabled = documentSnapshot['isQrEnabled'];
     qrValue = documentSnapshot['qrValue'];
@@ -199,6 +202,7 @@ class ProfileModel {
 
     isMathsEnabled = profileData['isMathsEnabled'];
     mathsDifficulty = profileData['mathsDifficulty'];
+    tilesDifficulty = profileData['tilesDifficulty'];
     numMathsQuestions = profileData['numMathsQuestions'];
     isQrEnabled = profileData['isQrEnabled'];
     qrValue = profileData['qrValue'];
@@ -257,6 +261,7 @@ class ProfileModel {
       'isSharedAlarmEnabled': profileRecord.isSharedAlarmEnabled,
       'isMathsEnabled': profileRecord.isMathsEnabled,
       'mathsDifficulty': profileRecord.mathsDifficulty,
+      'tilesDifficulty': profileRecord.tilesDifficulty,
       'numMathsQuestions': profileRecord.numMathsQuestions,
       'isQrEnabled': profileRecord.isQrEnabled,
       'qrValue': profileRecord.qrValue,

@@ -784,6 +784,8 @@ class AddOrUpdateAlarmController extends GetxController {
       numberOfSteps.value = alarmRecord.value.numberOfSteps;
 
       isMatchTilesEnabled.value = alarmRecord.value.isMatchTilesEnabled;
+      tilesDifficulty.value =
+          Difficulty.values[alarmRecord.value.tilesDifficulty];
 
       isQrEnabled.value = alarmRecord.value.isQrEnabled;
       qrValue.value = alarmRecord.value.qrValue;
@@ -877,6 +879,7 @@ class AddOrUpdateAlarmController extends GetxController {
       'shakeTimes': shakeTimes.value,
       'qrValue': qrValue.value,
       'mathsDifficulty': mathsDifficulty.value,
+      'tilesDifficulty': tilesDifficulty.value,
       'mathsSliderValue': mathsSliderValue.value,
       'numMathsQuestions': numMathsQuestions.value,
       'numberOfSteps': numberOfSteps.value,
@@ -970,6 +973,7 @@ class AddOrUpdateAlarmController extends GetxController {
     setupListener<String>(qrValue, 'qrValue');
     setupListener<double>(mathsSliderValue, 'mathsSliderValue');
     setupListener<Difficulty>(mathsDifficulty, 'mathsDifficulty');
+    setupListener<Difficulty>(tilesDifficulty, 'tilesDifficulty');
     setupListener<int>(numMathsQuestions, 'numMathsQuestions');
     setupListener<int>(numberOfSteps, 'numberOfSteps');
 
@@ -1069,6 +1073,7 @@ class AddOrUpdateAlarmController extends GetxController {
       shakeTimes: shakeTimes.value,
       isPedometerEnabled: isPedometerEnabled.value,
       isMatchTilesEnabled: isMatchTilesEnabled.value,
+      tilesDifficulty: tilesDifficulty.value.index,
       numberOfSteps: numberOfSteps.value,
       ringtoneName: customRingtoneName.value,
       note: note.value,
@@ -1080,7 +1085,7 @@ class AddOrUpdateAlarmController extends GetxController {
       guardianTimer: guardianTimer.value,
       guardian: guardian.value,
       isCall: isCall.value,
-      ringOn: isFutureDate.value,
+      ringOn: isFutureDate.value
     );
   }
 
@@ -1343,6 +1348,7 @@ class AddOrUpdateAlarmController extends GetxController {
       guardian: guardian.value,
       isCall: isCall.value,
       ringOn: isFutureDate.value,
+      tilesDifficulty: tilesDifficulty.value.index,
     );
 
     if(homeController.isProfileUpdate.value)

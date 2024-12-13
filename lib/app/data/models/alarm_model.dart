@@ -45,6 +45,7 @@ class AlarmModel {
   late String label;
   late bool isOneTime;
   late int snoozeDuration;
+  late int tilesDifficulty;
   late int gradient;
   late String ringtoneName;
   late String note;
@@ -83,6 +84,7 @@ class AlarmModel {
       required this.weatherTypes,
       required this.isMathsEnabled,
       required this.mathsDifficulty,
+      required this.tilesDifficulty,
       required this.numMathsQuestions,
       required this.isShakeEnabled,
       required this.shakeTimes,
@@ -158,6 +160,7 @@ class AlarmModel {
     location = documentSnapshot['location'];
     isMathsEnabled = documentSnapshot['isMathsEnabled'];
     mathsDifficulty = documentSnapshot['mathsDifficulty'];
+    tilesDifficulty = documentSnapshot['tilesDifficulty'];
     numMathsQuestions = documentSnapshot['numMathsQuestions'];
     isQrEnabled = documentSnapshot['isQrEnabled'];
     qrValue = documentSnapshot['qrValue'];
@@ -199,6 +202,7 @@ class AlarmModel {
       weatherTypes: List<int>.from(jsonDecode(map['weatherTypes'])),
       isMathsEnabled: map['isMathsEnabled'] == 1,
       mathsDifficulty: map['mathsDifficulty'],
+      tilesDifficulty: map['tilesDifficulty'],
       numMathsQuestions: map['numMathsQuestions'],
       isShakeEnabled: map['isShakeEnabled'] == 1,
       shakeTimes: map['shakeTimes'],
@@ -254,6 +258,7 @@ class AlarmModel {
       'weatherTypes': jsonEncode(weatherTypes),
       'isMathsEnabled': isMathsEnabled ? 1 : 0,
       'mathsDifficulty': mathsDifficulty,
+      'tilesDifficulty': tilesDifficulty,
       'numMathsQuestions': numMathsQuestions,
       'isShakeEnabled': isShakeEnabled ? 1 : 0,
       'shakeTimes': shakeTimes,
@@ -319,6 +324,7 @@ class AlarmModel {
 
     isMathsEnabled = alarmData['isMathsEnabled'];
     mathsDifficulty = alarmData['mathsDifficulty'];
+    tilesDifficulty = alarmData['tilesDifficulty'];
     numMathsQuestions = alarmData['numMathsQuestions'];
     isQrEnabled = alarmData['isQrEnabled'];
     qrValue = alarmData['qrValue'];
@@ -379,6 +385,7 @@ class AlarmModel {
       'isSharedAlarmEnabled': alarmRecord.isSharedAlarmEnabled,
       'isMathsEnabled': alarmRecord.isMathsEnabled,
       'mathsDifficulty': alarmRecord.mathsDifficulty,
+      'tilesDifficulty': alarmRecord.tilesDifficulty,
       'numMathsQuestions': alarmRecord.numMathsQuestions,
       'isQrEnabled': alarmRecord.isQrEnabled,
       'qrValue': alarmRecord.qrValue,

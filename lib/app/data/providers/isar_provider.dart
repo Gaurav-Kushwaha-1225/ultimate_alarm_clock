@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -85,6 +86,7 @@ class IsarDb {
         qrValue TEXT,
         isPedometerEnabled INTEGER NOT NULL DEFAULT 0,
         isMatchTilesEnabled INTEGER NOT NULL DEFAULT 0,
+        tilesDifficulty INTEGER,
         numberOfSteps INTEGER,
         intervalToAlarm INTEGER,
         isActivityEnabled INTEGER NOT NULL DEFAULT 0,

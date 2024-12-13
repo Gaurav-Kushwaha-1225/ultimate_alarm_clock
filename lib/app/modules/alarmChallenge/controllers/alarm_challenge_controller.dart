@@ -41,7 +41,8 @@ class AlarmChallengeController extends GetxController {
   int initialSteps = 0;
   bool shouldProcessStepCount = false;
 
-  RxString difficultyMatchTiles = 'easy'.obs;
+  final isMatchTilesOngoing = Status.initialized.obs;
+  RxInt tilesDifficulty = 0.obs;
 
   late Stream<StepCount> _stepCountStream;
 
@@ -201,7 +202,7 @@ class AlarmChallengeController extends GetxController {
     }
 
     if(alarmRecord.isMatchTilesEnabled) {
-      return ;
+      // tilesDifficulty.listen(onData)
     }
   }
 

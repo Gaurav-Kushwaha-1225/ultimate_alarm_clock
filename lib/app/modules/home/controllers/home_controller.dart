@@ -734,6 +734,7 @@ class HomeController extends GetxController {
         guardianTimer: profileModel.value.guardianTimer,
         guardian: profileModel.value.guardian,
         isCall: profileModel.value.isCall,
-        ringOn: false);
+        ringOn: false,
+        tilesDifficulty: profileModel.value.tilesDifficulty,);
   }
 }

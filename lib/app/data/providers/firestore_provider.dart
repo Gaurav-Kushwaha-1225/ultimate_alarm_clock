@@ -59,6 +59,7 @@ class FirestoreDb {
         qrValue TEXT,
         isPedometerEnabled INTEGER NOT NULL DEFAULT 0,
         isMatchTilesEnabled INTEGER NOT NULL DEFAULT 0,
+        tilesDifficulty INTEGER,
         numberOfSteps INTEGER,
         intervalToAlarm INTEGER,
         isActivityEnabled INTEGER NOT NULL DEFAULT 0,

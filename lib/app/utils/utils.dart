@@ -77,6 +77,7 @@ class Utils {
     guardian: '',
     isCall: false,
     ringOn: false,
+    tilesDifficulty: 0,
   );
 
   static String formatDateTimeToHHMMSS(DateTime dateTime) {
@@ -497,6 +498,7 @@ class Utils {
       guardian: '',
       isCall: false,
       ringOn: false,
+      tilesDifficulty: 0,
     );
   }
 
